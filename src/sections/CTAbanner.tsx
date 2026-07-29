@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Camera, Sparkles } from "lucide-react";
-import Button from "../components/ui/Button";
+import {Camera, Sparkles } from "lucide-react";
+
 
 const CTABanner = () => {
   return (
