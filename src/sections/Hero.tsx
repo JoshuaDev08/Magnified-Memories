@@ -63,7 +63,7 @@ const Hero = () => {
           <div className="flex flex-wrap justify-center gap-4">
             <Button size="lg" className="group px-8 text-sm">
               Explore Booths
-              <ArrowRight className="ml-1 size-4 transition-transform duration-300 group-hover:translate-x-1" />
+                
             </Button>
 
             <button
