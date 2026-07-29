@@ -7,6 +7,7 @@ import Gallery from '../sections/Gallery'
 import Pricing from '../sections/Pricing'
 import Testimonials from '../sections/Testimonials'
 import CTABanner from '../sections/CTAbanner'
+import Footer from './Footer'
 
 const Mainlayout = () => {
   return (
@@ -20,6 +21,7 @@ const Mainlayout = () => {
         <Pricing />
         <Testimonials />
         <CTABanner />
+        <Footer />
     </>
   )
 }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import Button from "../components/ui/Button";
 import { ArrowRight } from "lucide-react";
 
@@ -36,34 +37,58 @@ const Hero = () => {
       <div className="absolute -bottom-32 -left-32 h-[450px] w-[450px] rounded-full bg-[#7A3B1E]/30 blur-3xl" />
 
       {/* Content */}
+      {/* Content */}
       <div className="hero-content relative z-10 text-center">
-        <div className="max-w-4xl">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl"
+        >
           {/* Eyebrow */}
-          <p className="mb-4 uppercase tracking-[0.3em] text-[#C4956A] text-sm font-semibold">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+            className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#C4956A]"
+          >
             Premium Photobooth Experience
-          </p>
+          </motion.p>
 
           {/* Heading */}
-          <h1
-            className="text-5xl md:text-7xl font-bold text-white leading-tight"
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35, duration: 0.8 }}
+            className="text-5xl font-bold leading-tight text-white md:text-7xl"
             style={{ fontFamily: "var(--font-serif)" }}
           >
             Make Every Event{" "}
             <span className="italic text-[#C4956A]">Unforgettable</span>
-          </h1>
+          </motion.h1>
 
           {/* Description */}
-          <p className="py-8 text-lg md:text-xl text-white/75 max-w-2xl mx-auto leading-relaxed">
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.55, duration: 0.8 }}
+            className="mx-auto max-w-2xl py-8 text-lg leading-relaxed text-white/75 md:text-xl"
+          >
             Capture timeless memories with elegant photo booths designed for
             weddings, birthdays, corporate events, and every celebration in
             between.
-          </p>
+          </motion.p>
 
           {/* Buttons */}
-          <div className="flex flex-wrap justify-center gap-4">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.75, duration: 0.7 }}
+            className="flex flex-wrap justify-center gap-4"
+          >
             <Button size="lg" className="group px-8 text-sm">
               Explore Booths
-                
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Button>
 
             <button
@@ -72,53 +97,78 @@ const Hero = () => {
             >
               Check Availability
             </button>
-          </div>
+          </motion.div>
 
           {/* Stats */}
-          <div className="mt-20 grid grid-cols-1 md:grid-cols-3 border-t border-white/20 pt-8">
-            <div className="py-6">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 0.8 }}
+            className="mt-20 grid grid-cols-1 border-t border-white/20 pt-8 md:grid-cols-3"
+          >
+            <motion.div
+              whileHover={{ y: -5 }}
+              transition={{ duration: 0.2 }}
+              className="py-6"
+            >
               <h2
                 className="text-4xl font-bold text-white"
                 style={{ fontFamily: "var(--font-serif)" }}
               >
                 500+
               </h2>
-              <p className="text-white/60 uppercase text-xs tracking-widest mt-2">
+
+              <p className="mt-2 text-xs uppercase tracking-widest text-white/60">
                 Events Served
               </p>
-            </div>
+            </motion.div>
 
-            <div className="py-6 md:border-x border-white/20">
+            <motion.div
+              whileHover={{ y: -5 }}
+              transition={{ duration: 0.2 }}
+              className="border-white/20 py-6 md:border-x"
+            >
               <h2
                 className="text-4xl font-bold text-white"
                 style={{ fontFamily: "var(--font-serif)" }}
               >
                 4
               </h2>
-              <p className="text-white/60 uppercase text-xs tracking-widest mt-2">
+
+              <p className="mt-2 text-xs uppercase tracking-widest text-white/60">
                 Booth Types
               </p>
-            </div>
+            </motion.div>
 
-            <div className="py-6">
+            <motion.div
+              whileHover={{ y: -5 }}
+              transition={{ duration: 0.2 }}
+              className="py-6"
+            >
               <h2
                 className="text-4xl font-bold text-white"
                 style={{ fontFamily: "var(--font-serif)" }}
               >
                 48h
               </h2>
-              <p className="text-white/60 uppercase text-xs tracking-widest mt-2">
+
+              <p className="mt-2 text-xs uppercase tracking-widest text-white/60">
                 Response Time
               </p>
-            </div>
-          </div>
-        </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center text-white/60 animate-bounce">
-        <div className="w-px h-10 bg-white/50" />
-      </div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.4, duration: 0.6 }}
+        className="absolute bottom-8 left-1/2 flex -translate-x-1/2 animate-bounce flex-col items-center text-white/60"
+      >
+        <div className="h-10 w-px bg-white/50" />
+      </motion.div>
     </section>
   );
 };

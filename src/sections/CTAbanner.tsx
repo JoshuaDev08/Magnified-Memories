@@ -85,14 +85,14 @@ const CTABanner = () => {
 
           {/* Buttons */}
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <Button size="lg">
-              Check Availability
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-
-            <button   
-              className="btn btn-lg btn-outline"
+            <button
+              type="button"
+              className="btn btn-lg rounded-box border border-white/30 bg-white/15 px-8 text-sm font-bold text-white backdrop-blur-md transition-all duration-300 hover:border-white/50 hover:bg-white/25 hover:text-white"
             >
+              Check Availability
+            </button>
+
+            <button className="btn btn-lg btn-secondary btn-outline text-sm rounded-box">
               Explore Our Booths
             </button>
           </div>

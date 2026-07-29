@@ -3,33 +3,33 @@ import { motion } from "framer-motion";
 const features = [
   {
     icon: "🏆",
-    title: "Award-Winning Service",
-    desc: "Triple-awarded by Blows & Vows — Perth's most trusted wedding & event directory. Our reputation speaks louder than any ad.",
+    title: "Professional Service",
+    desc: "Our experienced team ensures your photobooth runs smoothly from setup to pack-up, so you can focus on enjoying your event.",
   },
   {
     icon: "📸",
-    title: "Unlimited Prints",
-    desc: "No coin slots, no limits. Every guest gets as many prints as they want, every single session, for the entire hire period.",
+    title: "Unlimited Photo Sessions",
+    desc: "Capture as many memories as you like with unlimited photo sessions throughout your event.",
   },
   {
     icon: "🎨",
-    title: "Fully Custom Branded",
-    desc: "Your names, your date, your logo. Every print template is designed to match your event aesthetic perfectly.",
+    title: "Customized Templates",
+    desc: "Every print layout is personalized with your event theme, names, logos, or colors to perfectly match your celebration.",
   },
   {
     icon: "👥",
-    title: "Dedicated Attendant",
-    desc: "A friendly team member stays with your booth all night — handling props, assisting guests, and keeping the fun going.",
+    title: "Friendly Booth Attendants",
+    desc: "Our attendants assist your guests, manage the booth, and keep the fun going from start to finish.",
   },
   {
     icon: "🚚",
-    title: "Perth-Wide Delivery",
-    desc: "We deliver, set up, and pack down anywhere in the Perth metro area. All included. No surprises on the invoice.",
+    title: "Serving Batangas",
+    desc: "Based in Lipa City, we provide delivery, setup, and on-site support for events across Batangas and nearby areas.",
   },
   {
     icon: "📱",
-    title: "Instant Digital Gallery",
-    desc: "Every photo lands in a beautiful online gallery delivered straight to your inbox within 24 hours of the event ending.",
+    title: "Digital Copies Included",
+    desc: "Receive digital copies of your event photos so you can relive and share every special moment after the celebration.",
   },
 ];
 
@@ -67,16 +67,21 @@ const WhyUs = () => {
               Why Choose Us
             </span>
 
-            <h2 className="mt-3 text-4xl font-bold leading-tight tracking-tight text-[#1C1410] sm:text-5xl" style={{ fontFamily: "var(--font-serif)" }}>
-              Perth&apos;s Most
+            <h2
+              className="mt-3 text-4xl font-bold leading-tight tracking-tight text-[#1C1410] sm:text-5xl"
+              style={{ fontFamily: "var(--font-serif)" }}
+            >
+              Batangas&apos;
               <br />
-              Trusted Booth Hire
+              Trusted Photobooth Partner
             </h2>
 
             <p className="mt-5 max-w-xl text-base leading-7 text-[#5A4535] sm:text-lg">
-              We&apos;ve been making events unforgettable since day one. Three
-              awards later, we&apos;re still obsessed with every last detail —
-              because your night deserves nothing less.
+              Based in Lipa City, Batangas, we bring premium photobooth
+              experiences to weddings, birthdays, corporate events, and special
+              celebrations across Batangas. Every event is handled with
+              creativity, professionalism, and attention to every little detail,
+              ensuring memories your guests will never forget.
             </p>
 
             {/* Awards */}
@@ -100,7 +105,7 @@ const WhyUs = () => {
                   <span className="text-2xl">{award.icon}</span>
 
                   <div>
-                    <h4 className="text-sm font-semibold text-[#1C1410]" >
+                    <h4 className="text-sm font-semibold text-[#1C1410]">
                       {award.label}
                     </h4>
 
@@ -146,7 +151,7 @@ const WhyUs = () => {
                     {feature.icon}
                   </motion.div>
 
-                  <h3 className="font-serif text-lg font-semibold text-[#1C1410]" >
+                  <h3 className="font-serif text-lg font-semibold text-[#1C1410]">
                     {feature.title}
                   </h3>
 
