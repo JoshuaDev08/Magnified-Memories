@@ -20,7 +20,7 @@ const Hero = () => {
       <div
         className="absolute inset-0 bg-cover bg-center scale-110"
         style={{
-          backgroundImage: "url('/src/assets/background.jpg')",
+          backgroundImage: "url('/src/assets/Background.jpg')",
           transform: `translateY(${offsetY * 0.55}px) scale(1.1)`,
           willChange: "transform",
         }}
