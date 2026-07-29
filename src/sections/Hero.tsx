@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Button from "../components/ui/Button";
 import { ArrowRight } from "lucide-react";
+import background from "../assets/Background.jpg";
 
 const Hero = () => {
   const [offsetY, setOffsetY] = useState(0);
@@ -20,7 +21,7 @@ const Hero = () => {
       <div
         className="absolute inset-0 bg-cover bg-center scale-110"
         style={{
-          backgroundImage: "url('/src/assets/Background.jpg')",
+          backgroundImage: `url(${background})`,
           transform: `translateY(${offsetY * 0.55}px) scale(1.1)`,
           willChange: "transform",
         }}
