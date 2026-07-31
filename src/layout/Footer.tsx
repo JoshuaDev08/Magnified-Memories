@@ -1,48 +1,24 @@
 import { motion } from "framer-motion";
 import { Camera, Trophy } from "lucide-react";
-import InstagramIcon from "../assets/icons/instagram.svg";
-import FacebookIcon from "../assets/icons/facebook.svg";
-import TiktokIcon from "../assets/icons/tiktok.svg";
-
-const footerLinks = [
-  {
-    title: "Our Booths",
-    links: [
-      "Retro Photobooth",
-      "Mirror Photobooth",
-      "Enclosed Photobooth",
-      "360 Video Booth",
-    ],
-  },
-  {
-    title: "Events",
-    links: ["Weddings", "Birthdays", "Corporate Events", "School Events"],
-  },
-  {
-    title: "Company",
-    links: ["About Us", "FAQ", "Gallery", "Contact Us"],
-  },
-];
-
-const socials = [
-  {
-    icon: InstagramIcon,
-    href: "#",
-    label: "Instagram",
-  },
-  {
-    icon: FacebookIcon,
-    href: "#",
-    label: "Facebook",
-  },
-  {
-    icon: TiktokIcon,
-    href: "#",
-    label: "TikTok",
-  },
-];
+import { footerLinks, socials } from "../data/footer";
+import Logo from "../assets/Logo.png";
 
 const Footer = () => {
+  const handleNavLinkClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    e.preventDefault();
+
+    const targetElement = document.querySelector(href);
+
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.getBoundingClientRect().top + window.scrollY,
+        behavior: "smooth",
+      });
+    }
+  };
   return (
     <footer className="bg-[#1C1410] text-white">
       <div className="mx-auto max-w-7xl px-6 py-10">
@@ -56,17 +32,25 @@ const Footer = () => {
             transition={{ duration: 0.5 }}
           >
             <div className="mb-4 flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-[#7A3B1E] to-[#C4956A] shadow-lg">
-                <Camera className="h-4 w-4 text-white" />
-              </div>
-
-              <h3
-                className="text-xl font-bold"
-                style={{ fontFamily: "var(--font-serif)" }}
+              <a
+                href="#home"
+                onClick={(e) => handleNavLinkClick(e, "#home")}
+                className="flex items-center gap-2 cursor-pointer lg:ml-1"
               >
-                Magnified
-                <span className="text-[#C4956A]">Memories</span>
-              </h3>
+                <img
+                  src={Logo}
+                  alt="Magnified Memories Logo"
+                  className="w-8 h-8 rounded-box object-cover"
+                />
+
+                <h3
+                  className="text-xl font-bold"
+                  style={{ fontFamily: "var(--font-serif)" }}
+                >
+                  Magnified
+                  <span className="text-[#C4956A]">Memories</span>
+                </h3>
+              </a>
             </div>
 
             <p className="max-w-xs text-sm leading-6 text-white/60">
@@ -80,6 +64,8 @@ const Footer = () => {
                 <motion.a
                   key={social.label}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={social.label}
                   whileHover={{ y: -3, scale: 1.08 }}
                   whileTap={{ scale: 0.95 }}
@@ -116,13 +102,25 @@ const Footer = () => {
 
               <ul className="space-y-2">
                 {section.links.map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
-                      className="text-sm text-white/60 transition-all duration-300 hover:pl-1 hover:text-[#C4956A]"
-                    >
-                      {link}
-                    </a>
+                  <li key={link.label}>
+                    {link.href ? (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const id = link.href.replace("#", "");
+                          document
+                            .getElementById(id)
+                            ?.scrollIntoView({ behavior: "smooth" });
+                        }}
+                        className="cursor-pointer text-sm text-white/60 transition-all duration-300 hover:pl-1 hover:text-[#C4956A]"
+                      >
+                        {link.label}
+                      </button>
+                    ) : (
+                      <span className="text-sm text-white/60">
+                        {link.label}
+                      </span>
+                    )}
                   </li>
                 ))}
               </ul>

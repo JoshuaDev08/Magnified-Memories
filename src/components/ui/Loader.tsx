@@ -3,17 +3,20 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Camera } from "lucide-react";
 
 interface LoaderProps {
+  ready: boolean;
   onDone: () => void;
 }
 
-const Loader = ({ onDone }: LoaderProps) => {
+const Loader = ({ ready, onDone }: LoaderProps) => {
   useEffect(() => {
+    if (!ready) return;
+
     const timer = setTimeout(() => {
       onDone();
-    }, 2200);
+    }, 800); // Time for your exit animation
 
     return () => clearTimeout(timer);
-  }, [onDone]);
+  }, [ready, onDone]);
 
   return (
     <AnimatePresence>

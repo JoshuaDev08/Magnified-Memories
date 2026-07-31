@@ -14,24 +14,53 @@ import Testimonials from "../sections/Testimonials";
 import CTABanner from "../sections/CTAbanner";
 import Footer from "./Footer";
 
-const MainLayout = () => {
-  const [loading, setLoading] = useState(true);
+// Assets to preload
+import background from "../assets/Background.jpg";
+import Logo from "../assets/Logo.png";
 
+const preloadImage = (src: string) =>
+  new Promise<void>((resolve) => {
+    const img = new Image();
+    img.src = src;
+
+    img.onload = () => resolve();
+    img.onerror = () => resolve();
+  });
+
+const MainLayout = () => {
+  const [assetsLoaded, setAssetsLoaded] = useState(false);
+  const [loaderDone, setLoaderDone] = useState(false);
+
+  // Preload important assets
   useEffect(() => {
-    document.body.style.overflow = loading ? "hidden" : "auto";
+    const loadAssets = async () => {
+      await Promise.all([preloadImage(background), preloadImage(Logo)]);
+
+      setAssetsLoaded(true);
+    };
+
+    loadAssets();
+  }, []);
+
+  // Prevent scrolling until everything is ready
+  useEffect(() => {
+    document.body.style.overflow =
+      assetsLoaded && loaderDone ? "auto" : "hidden";
 
     return () => {
       document.body.style.overflow = "auto";
     };
-  }, [loading]);
+  }, [assetsLoaded, loaderDone]);
 
   return (
     <>
       <AnimatePresence mode="wait">
-        {loading && <Loader onDone={() => setLoading(false)} />}
+        {!loaderDone && (
+          <Loader ready={assetsLoaded} onDone={() => setLoaderDone(true)} />
+        )}
       </AnimatePresence>
 
-      {!loading && (
+      {assetsLoaded && loaderDone && (
         <>
           <Navbar />
 

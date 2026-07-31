@@ -1,0 +1,51 @@
+export const photos = [
+  {
+    url: "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=800&h=1000&fit=crop&auto=format",
+    alt: "Guests celebrating",
+    category: "Celebration",
+    width: 800,
+    height: 1000,
+  },
+  {
+    url: "https://images.unsplash.com/photo-1714972383570-44ddc9738355?w=800&h=600&fit=crop&auto=format",
+    alt: "Dance floor moments",
+    category: "Party",
+    width: 800,
+    height: 600,
+  },
+  {
+    url: "https://images.unsplash.com/photo-1713519341017-431ec17a211a?w=800&h=600&fit=crop&auto=format",
+    alt: "Mirror booth glamour",
+    category: "Mirror Booth",
+    width: 800,
+    height: 600,
+  },
+  {
+    url: "https://images.unsplash.com/photo-1595854875339-4d60795dcb65?w=800&h=1000&fit=crop&auto=format",
+    alt: "Wedding photobooth",
+    category: "Wedding",
+    width: 800,
+    height: 1000,
+  },
+  {
+    url: "https://images.unsplash.com/photo-1439539698758-ba2680ecadb9?w=800&h=600&fit=crop&auto=format",
+    alt: "Evening party",
+    category: "Event",
+    width: 800,
+    height: 600,
+  },
+  {
+    url: "https://images.unsplash.com/photo-1578376706507-35e6dd7af19c?w=800&h=600&fit=crop&auto=format",
+    alt: "Retro booth",
+    category: "Classic Booth",
+    width: 800,
+    height: 600,
+  },
+  {
+    url: "https://images.unsplash.com/photo-1578376706507-35e6dd7af19c?w=800&h=360&fit=crop&auto=format",
+    alt: "Retro boothness",
+    category: "Classic Booth",
+    width: 800,
+    height: 360,
+  },
+];
