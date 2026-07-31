@@ -87,7 +87,15 @@ const Hero = () => {
             transition={{ delay: 0.75, duration: 0.7 }}
             className="flex flex-wrap justify-center gap-4"
           >
-            <Button size="lg" className="group px-8 text-sm">
+            <Button
+              size="lg"
+              className="group px-8 text-sm"
+              onClick={() =>
+                document
+                  .getElementById("our-booths")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
               Explore Booths
               <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </Button>

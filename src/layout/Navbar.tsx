@@ -5,10 +5,10 @@ import Logo from "../assets/Logo.png";
 import Button from "../components/ui/Button";
 
 const navLinks = [
-  { name: "Our Booth", href: "#home" },
-  { name: "How it Works", href: "#builder" },
-  { name: "About", href: "#projects" },
-  { name: "Pricing", href: "#material" },
+  { name: "Our Booth", href: "#our-booths" },
+  { name: "How it Works", href: "#how-it-works" },
+  { name: "Gallery", href: "#gallery" },
+  { name: "Pricing", href: "#pricing" },
 ];
 
 const Navbar = () => {
@@ -116,7 +116,16 @@ const Navbar = () => {
           {/* Right Side */}
           <div className="navbar-end gap-2">
             <div className="hidden lg:block">
-              <Button className="mr-1">Book a Booth</Button>
+              <Button
+                className="mr-1"
+                onClick={() =>
+                  document
+                    .getElementById("pricing")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
+              >
+                Book a Booth
+              </Button>
             </div>
 
             <button

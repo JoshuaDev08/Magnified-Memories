@@ -48,7 +48,7 @@ const photos = [
   },
   {
     url: "https://images.unsplash.com/photo-1578376706507-35e6dd7af19c?w=800&h=360&fit=crop&auto=format",
-    alt: "Retro booth",
+    alt: "Retro boothness",
     category: "Classic Booth",
     width: 800,
     height: 360,

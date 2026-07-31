@@ -11,7 +11,8 @@ const footerLinks = [
       "Retro Photobooth",
       "Mirror Photobooth",
       "Enclosed Photobooth",
-      "360 Video Booth",
+      "Look Up Photobooth",
+      "Video Guestbook",
     ],
   },
   {
@@ -20,24 +21,24 @@ const footerLinks = [
   },
   {
     title: "Company",
-    links: ["About Us", "FAQ", "Gallery", "Contact Us"],
+    links: ["Why Choose Us", "Gallery", "Pricing"],
   },
 ];
 
 const socials = [
   {
     icon: InstagramIcon,
-    href: "#",
+    href: "https://www.instagram.com/magnifiedmem/",
     label: "Instagram",
   },
   {
     icon: FacebookIcon,
-    href: "#",
+    href: "https://www.facebook.com/magnifiedmemories/",
     label: "Facebook",
   },
   {
     icon: TiktokIcon,
-    href: "#",
+    href: "https://www.tiktok.com/@magnifiedmem",
     label: "TikTok",
   },
 ];
@@ -80,6 +81,8 @@ const Footer = () => {
                 <motion.a
                   key={social.label}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={social.label}
                   whileHover={{ y: -3, scale: 1.08 }}
                   whileTap={{ scale: 0.95 }}

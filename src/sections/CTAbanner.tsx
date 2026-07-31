@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
-import {Camera, Sparkles } from "lucide-react";
-
+import { Camera, Sparkles } from "lucide-react";
 
 const CTABanner = () => {
   return (
@@ -92,7 +91,14 @@ const CTABanner = () => {
               Check Availability
             </button>
 
-            <button className="btn btn-lg btn-secondary btn-outline text-sm rounded-box">
+            <button
+              className="btn btn-lg btn-secondary btn-outline text-sm rounded-box"
+              onClick={() =>
+                document
+                  .getElementById("our-booths")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
               Explore Our Booths
             </button>
           </div>

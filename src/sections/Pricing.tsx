@@ -46,7 +46,7 @@ const plans = [
   {
     name: "Premium",
     price: "24,000",
-    duration: "4 Hours",
+    duration: "3 Hours",
     desc: "The ultimate experience for corporate events, weddings, and grand celebrations.",
     features: [
       "2 Booths of your choice",
