@@ -6,20 +6,29 @@ export const footerLinks = [
   {
     title: "Our Booths",
     links: [
-      "Retro Photobooth",
-      "Mirror Photobooth",
-      "Enclosed Photobooth",
-      "Look Up Photobooth",
-      "Video Guestbook",
+      { label: "Retro Photobooth", href: "#our-booths" },
+      { label: "Mirror Photobooth", href: "#our-booths" },
+      { label: "Enclosed Photobooth", href: "#our-booths" },
+      { label: "Look Up Photobooth", href: "#our-booths" },
+      { label: "Video Guestbook", href: "#our-booths" },
     ],
   },
   {
     title: "Events",
-    links: ["Weddings", "Birthdays", "Corporate Events", "School Events"],
+    links: [
+      { label: "Weddings", href: null },
+      { label: "Birthdays", href: null },
+      { label: "Corporate Events", href: null },
+      { label: "School Events", href: null },
+    ],
   },
   {
     title: "Company",
-    links: ["Why Choose Us", "Gallery", "Pricing"],
+    links: [
+      { label: "Why Choose Us", href: "#why-us" },
+      { label: "Gallery", href: "#gallery" },
+      { label: "Pricing", href: "#pricing" },
+    ],
   },
 ];
 

@@ -3,7 +3,7 @@ import { features, awards } from "../data/whychooseus";
 
 const WhyUs = () => {
   return (
-    <section id="about" className="bg-base-100 px-6 py-24 lg:py-30">
+    <section id="why-us" className="bg-base-100 px-6 py-24 lg:py-30">
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-20">
           {/* Left Content */}

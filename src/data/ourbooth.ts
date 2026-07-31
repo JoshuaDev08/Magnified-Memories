@@ -55,4 +55,32 @@ export const booths = [
       "Unlimited messages",
     ],
   },
+  {
+    name: "Look Up Booth",
+    tag: "Open-Air Experience",
+    emoji: "📸",
+    img: "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&h=480&fit=crop&auto=format",
+    desc: "Designed for larger groups, our Look Up Booth features an overhead camera that captures everyone in the frame. Perfect for weddings, parties, and corporate events where every smile deserves to be remembered.",
+    features: [
+      "Overhead camera setup",
+      "Fits large group photos",
+      "Unlimited photo sessions",
+      "Instant print-outs & digital copies",
+      "Custom photo templates",
+    ],
+  },
+  {
+    name: "Video Guestbook",
+    tag: "Premium Add-on",
+    emoji: "🎥",
+    img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=480&fit=crop&auto=format",
+    desc: "Replace the traditional guestbook with a modern digital keepsake. Guests can record heartfelt video messages with clear audio, creating a collection of memories that couples and celebrants can relive for years to come.",
+    features: [
+      "HD video with crystal-clear audio",
+      "Easy-to-use tablet interface",
+      "Unlimited guest recordings",
+      "Digital souvenir keepsake",
+      "Perfect for weddings & celebrations",
+    ],
+  },
 ];

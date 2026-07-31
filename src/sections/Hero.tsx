@@ -38,8 +38,7 @@ const Hero = () => {
       <div className="absolute -bottom-32 -left-32 h-[450px] w-[450px] rounded-full bg-[#7A3B1E]/30 blur-3xl" />
 
       {/* Content */}
-      {/* Content */}
-      <div className="hero-content relative z-10 text-center">
+      <div className="hero-content relative z-10 px-6 text-center sm:px-8 lg:px-0">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -51,7 +50,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#C4956A]"
+            className="mb-4 px-2 text-xs font-semibold uppercase tracking-[0.25em] text-[#C4956A] sm:px-0 sm:text-sm sm:tracking-[0.3em]"
           >
             Premium Photobooth Experience
           </motion.p>
@@ -61,7 +60,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.8 }}
-            className="text-5xl font-bold leading-tight text-white md:text-7xl"
+            className="text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl lg:text-7xl"
             style={{ fontFamily: "var(--font-serif)" }}
           >
             Make Every Event{" "}
@@ -73,7 +72,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.55, duration: 0.8 }}
-            className="mx-auto max-w-2xl py-8 text-lg leading-relaxed text-white/75 md:text-xl"
+            className="mx-auto max-w-2xl px-2 py-6 text-base leading-relaxed text-white/75 sm:px-0 sm:py-8 sm:text-lg md:text-xl"
           >
             Capture timeless memories with elegant photo booths designed for
             weddings, birthdays, corporate events, and every celebration in
@@ -85,7 +84,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.75, duration: 0.7 }}
-            className="flex flex-wrap justify-center gap-4"
+            className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
           >
             <Button
               size="lg"
@@ -102,7 +101,7 @@ const Hero = () => {
 
             <button
               type="button"
-              className="btn btn-lg rounded-box border border-white/30 bg-white/15 px-8 text-sm font-bold text-white backdrop-blur-md transition-all duration-100 hover:border-white/50 hover:bg-white/25 hover:text-white"
+              className="btn btn-lg rounded-box sm:w-auto border border-white/30 bg-white/15 px-8 text-sm font-bold text-white backdrop-blur-md transition-all duration-100 hover:border-white/50 hover:bg-white/25 hover:text-white"
             >
               Check Availability
             </button>
@@ -113,21 +112,21 @@ const Hero = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.8 }}
-            className="mt-20 grid grid-cols-1 border-t border-white/20 pt-8 md:grid-cols-3"
+            className="mt-20 flex justify-between border-t border-white/20 pt-6"
           >
             <motion.div
               whileHover={{ y: -5 }}
               transition={{ duration: 0.2 }}
-              className="py-6"
+              className="flex-1 py-3 text-center"
             >
               <h2
-                className="text-4xl font-bold text-white"
+                className="text-2xl font-bold text-white sm:text-4xl"
                 style={{ fontFamily: "var(--font-serif)" }}
               >
                 500+
               </h2>
 
-              <p className="mt-2 text-xs uppercase tracking-widest text-white/60">
+              <p className="mt-2 text-[10px] uppercase tracking-wider text-white/60 sm:text-xs">
                 Events Served
               </p>
             </motion.div>
@@ -135,16 +134,16 @@ const Hero = () => {
             <motion.div
               whileHover={{ y: -5 }}
               transition={{ duration: 0.2 }}
-              className="border-white/20 py-6 md:border-x"
+              className="flex-1 border-x border-white/20 py-3 text-center"
             >
               <h2
-                className="text-4xl font-bold text-white"
+                className="text-2xl font-bold text-white sm:text-4xl"
                 style={{ fontFamily: "var(--font-serif)" }}
               >
                 4
               </h2>
 
-              <p className="mt-2 text-xs uppercase tracking-widest text-white/60">
+              <p className="mt-2 text-[10px] uppercase tracking-wider text-white/60 sm:text-xs">
                 Booth Types
               </p>
             </motion.div>
@@ -152,16 +151,16 @@ const Hero = () => {
             <motion.div
               whileHover={{ y: -5 }}
               transition={{ duration: 0.2 }}
-              className="py-6"
+              className="flex-1 py-3 text-center"
             >
               <h2
-                className="text-4xl font-bold text-white"
+                className="text-2xl font-bold text-white sm:text-4xl"
                 style={{ fontFamily: "var(--font-serif)" }}
               >
                 48h
               </h2>
 
-              <p className="mt-2 text-xs uppercase tracking-widest text-white/60">
+              <p className="mt-2 text-[10px] uppercase tracking-wider text-white/60 sm:text-xs">
                 Response Time
               </p>
             </motion.div>

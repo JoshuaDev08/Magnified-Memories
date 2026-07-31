@@ -52,7 +52,7 @@ const Navbar = () => {
         <div
           className={`navbar transition-all duration-300 ease-in-out ${
             isScrolled
-              ? "bg-[#FAF7F2]/70 backdrop-blur-xl font-black border border-white/40 shadow-lg shadow-[#7A3B1E]/10 rounded-2xl"
+              ? "bg-[#FAF7F2]/70 backdrop-blur-xs font-black border border-white/40 shadow-lg shadow-[#7A3B1E]/10 rounded-2xl"
               : "bg-transparent border border-transparent shadow-none"
           }`}
         >
@@ -172,7 +172,7 @@ const Navbar = () => {
               <div className="flex flex-col h-full p-8">
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="self-end w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center mb-10"
+                  className="self-end w-12 h-10 rounded-lg  flex items-center justify-center mb-10 bg-[#7A3B1E]/10 border-[#7A3B1E]/20"
                 >
                   <X className="w-5 h-5 text-white" />
                 </button>
@@ -185,14 +185,20 @@ const Navbar = () => {
                       initial={{ opacity: 0, x: 30 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.08 }}
-                      className="text-lg text-zinc-300 hover:text-warning transition-colors"
+                      className="text-lg text-black hover:text-warning transition-colors"
                     >
                       {link.name}
                     </motion.a>
                   ))}
                 </div>
-                z
-                <div className="mt-auto">
+                <div
+                  className="mt-auto"
+                  onClick={() =>
+                    document
+                      .getElementById("pricing")
+                      ?.scrollIntoView({ behavior: "smooth" })
+                  }
+                >
                   <Button variant="outline">Book a Booth</Button>
                 </div>
               </div>

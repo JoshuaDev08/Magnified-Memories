@@ -127,7 +127,7 @@ const Testimonials = () => {
               </p>
 
               {/* Review */}
-              <p className="mb-8 leading-8 text-white/80 italic">
+              <p className="mb-8 leading-8 text-sm text-white/80 italic">
                 "{review.text}"
               </p>
 
