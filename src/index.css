@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-sans);
 }
 
 h1,
@@ -16,11 +16,11 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-heading);
+  font-family: var(--font-serif);
 }
 
 @plugin "daisyui/theme" {
-  name: "light";
+  name: "magnified";
   default: true;
   prefersdark: false;
   color-scheme: light;
