@@ -219,7 +219,7 @@ const Pricing = () => {
 
                   <div className="mt-auto pt-8">
                     {plan.featured ? (
-                      <Button className="w-full border-white/30 bg-white/15 text-white hover:bg-white/25">
+                      <Button className="w-full border-white/30 bg-white/15 text-white hover:border-white/25 hover:bg-white/25">
                         Book {plan.name}
                       </Button>
                     ) : (

@@ -25,25 +25,22 @@ h6 {
   prefersdark: false;
   color-scheme: light;
 
-  /* Warm background colors */
-  --color-base-100: #faf7f2;
-  --color-base-200: #f3eee7;
-  --color-base-300: #e9e1d7;
-  --color-base-content: #2b2118;
+  --color-base-100: oklch(98% 0.01 85);
+  --color-base-200: oklch(95% 0.015 85);
+  --color-base-300: oklch(91% 0.02 85);
+  --color-base-content: oklch(25% 0.03 50);
 
-  /* Brand colors */
-  --color-primary: #7a3b1e;
-  --color-primary-content: #ffffff;
+  --color-primary: oklch(43% 0.11 45);
+  --color-primary-content: oklch(100% 0 0);
 
-  --color-secondary: #c4956a;
-  --color-secondary-content: #ffffff;
+  --color-secondary: oklch(72% 0.08 60);
+  --color-secondary-content: oklch(100% 0 0);
 
-  --color-accent: #d9b08c;
-  --color-accent-content: #2b2118;
+  --color-accent: oklch(79% 0.06 70);
+  --color-accent-content: oklch(25% 0.03 50);
 
-  /* Neutral colors */
-  --color-neutral: #2b2118;
-  --color-neutral-content: #ffffff;
+  --color-neutral: oklch(25% 0.03 50);
+  --color-neutral-content: oklch(100% 0 0);
 
   --color-info: oklch(74% 0.16 232.661);
   --color-info-content: oklch(29% 0.066 243.157);
@@ -53,6 +50,7 @@ h6 {
   --color-warning-content: oklch(41% 0.112 45.904);
   --color-error: oklch(71% 0.194 13.428);
   --color-error-content: oklch(27% 0.105 12.094);
+
   --radius-selector: 0.5rem;
   --radius-field: 0.25rem;
   --radius-box: 0.5rem;
