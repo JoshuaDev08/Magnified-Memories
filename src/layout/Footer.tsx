@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Camera, Trophy } from "lucide-react";
+import { Trophy } from "lucide-react";
 import { footerLinks, socials } from "../data/footer";
 import Logo from "../assets/Logo.png";
 
