@@ -2,65 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, ArrowRight } from "lucide-react";
 import Button from "../components/ui/Button";
-
-const booths = [
-  {
-    name: "Retro Photobooth",
-    tag: "Classic & Timeless",
-    emoji: "📷",
-    img: "https://images.unsplash.com/photo-1578376706507-35e6dd7af19c?w=600&h=480&fit=crop&auto=format",
-    desc: "Step into a slice of nostalgia. Our vintage-inspired Retro Photobooth delivers classic strips and instant prints with that warm, timeless feel your guests will treasure long after the night ends.",
-    features: [
-      "Instant 2×6 & 4×6 prints",
-      "Vintage & modern filter options",
-      "Custom-branded print templates",
-      "Unlimited photo sessions",
-      "Dedicated attendant included",
-    ],
-  },
-  {
-    name: "Mirror Photobooth",
-    tag: "Glamorous & Interactive",
-    emoji: "🪞",
-    img: "https://images.unsplash.com/photo-1713519341017-431ec17a211a?w=600&h=480&fit=crop&auto=format",
-    desc: "Floor-to-ceiling glamour. Our full-length mirror engages guests with animated prompts, fun animations, and a sleek touchscreen interface.",
-    features: [
-      "Full-length touch mirror display",
-      "Animated prompts",
-      "Signature & doodle",
-      "Instant social sharing",
-      "Elegant frame",
-    ],
-  },
-  {
-    name: "Enclosed Photobooth",
-    tag: "Private Experience",
-    emoji: "🎞️",
-    img: "https://images.unsplash.com/photo-1583258919354-95996dcc7ea2?w=600&h=480&fit=crop&auto=format",
-    desc: "A private booth where guests can truly be themselves and create unforgettable memories.",
-    features: [
-      "Private enclosure",
-      "Seats up to 6",
-      "GIF & Boomerang",
-      "Backdrop options",
-      "Online gallery",
-    ],
-  },
-  {
-    name: "Video Guestbook",
-    tag: "Modern Keepsake",
-    emoji: "🎤",
-    img: "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=600&h=480&fit=crop&auto=format",
-    desc: "Capture heartfelt video messages that you'll cherish forever.",
-    features: [
-      "HD recording",
-      "Guest prompts",
-      "Highlight reel",
-      "7-day delivery",
-      "Unlimited messages",
-    ],
-  },
-];
+import { booths } from "../data/ourbooth";
 
 const OurBooths = () => {
   const [active, setActive] = useState(0);

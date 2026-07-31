@@ -3,13 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Logo from "../assets/Logo.png";
 import Button from "../components/ui/Button";
-
-const navLinks = [
-  { name: "Our Booth", href: "#our-booths" },
-  { name: "How it Works", href: "#how-it-works" },
-  { name: "Gallery", href: "#gallery" },
-  { name: "Pricing", href: "#pricing" },
-];
+import { navLinks } from "../data/Navbar";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);

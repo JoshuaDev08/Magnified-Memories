@@ -1,47 +1,6 @@
 import { motion } from "framer-motion";
 import { Camera, Trophy } from "lucide-react";
-import InstagramIcon from "../assets/icons/instagram.svg";
-import FacebookIcon from "../assets/icons/facebook.svg";
-import TiktokIcon from "../assets/icons/tiktok.svg";
-
-const footerLinks = [
-  {
-    title: "Our Booths",
-    links: [
-      "Retro Photobooth",
-      "Mirror Photobooth",
-      "Enclosed Photobooth",
-      "Look Up Photobooth",
-      "Video Guestbook",
-    ],
-  },
-  {
-    title: "Events",
-    links: ["Weddings", "Birthdays", "Corporate Events", "School Events"],
-  },
-  {
-    title: "Company",
-    links: ["Why Choose Us", "Gallery", "Pricing"],
-  },
-];
-
-const socials = [
-  {
-    icon: InstagramIcon,
-    href: "https://www.instagram.com/magnifiedmem/",
-    label: "Instagram",
-  },
-  {
-    icon: FacebookIcon,
-    href: "https://www.facebook.com/magnifiedmemories/",
-    label: "Facebook",
-  },
-  {
-    icon: TiktokIcon,
-    href: "https://www.tiktok.com/@magnifiedmem",
-    label: "TikTok",
-  },
-];
+import { footerLinks, socials } from "../data/footer";
 
 const Footer = () => {
   return (

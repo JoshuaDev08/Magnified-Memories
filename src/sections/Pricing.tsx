@@ -1,70 +1,7 @@
 import { motion } from "framer-motion";
 import { Check, Star } from "lucide-react";
 import Button from "../components/ui/Button";
-
-const plans = [
-  {
-    name: "Essential",
-    price: "10,000",
-    duration: "3 Hours",
-    desc: "Perfect for birthdays, intimate gatherings, and small celebrations.",
-    features: [
-      "1 Booth of your choice",
-      "3-hour hire period",
-      "Unlimited photo sessions",
-      "Instant photo print-outs",
-      "Choice of 3 photo templates",
-      "Free use of premium props",
-      "Digital copies via QR Code",
-      "Online digital album",
-      "Professional booth attendant",
-      "Customized welcome screen",
-      "Special gift for the client",
-    ],
-    featured: false,
-  },
-  {
-    name: "Celebration",
-    price: "14,500",
-    duration: "3 Hours",
-    desc: "Our most popular package for weddings, debuts, and special occasions.",
-    features: [
-      "1 Booth of your choice",
-      "3-hour hire period",
-      "Unlimited photo sessions",
-      "Instant photo print-outs",
-      "Custom photo template",
-      "Premium prop collection",
-      "Digital copies via QR Code",
-      "Online digital album",
-      "Professional booth attendant",
-      "Customized welcome screen",
-      "Special gift for the client",
-    ],
-    featured: true,
-  },
-  {
-    name: "Premium",
-    price: "24,000",
-    duration: "3 Hours",
-    desc: "The ultimate experience for corporate events, weddings, and grand celebrations.",
-    features: [
-      "2 Booths of your choice",
-      "8-hour hire period",
-      "Unlimited photo sessions",
-      "Instant photo print-outs",
-      "Fully customized photo template",
-      "Premium prop collection",
-      "Digital copies via QR Code",
-      "Online digital album",
-      "Dedicated event coordinator",
-      "Priority setup & pack-down",
-      "Customized welcome screen",
-      "Special gift for the client",
-    ],
-    featured: false,
-  },
-];
+import { plans } from "../data/pricing";
 
 const Pricing = () => {
   return (
