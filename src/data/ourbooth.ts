@@ -1,3 +1,39 @@
+const defaultAddons = [
+  {
+    type: "Souvenir",
+    name: "Keychain Station",
+    img: "/images/addons/keychain.jpg",
+    price: "₱1,500",
+    pieces: "50 pcs",
+  },
+  {
+    type: "Print Upgrade",
+    name: "Magnetic Print",
+    img: "/images/addons/magnetic.jpg",
+    price: "₱500/hr",
+  },
+  {
+    type: "Extra Hour",
+    name: "Classic Print Extra Hour",
+    img: "/images/addons/clock.jpg",
+    price: "₱1,000/hr",
+  },
+  {
+    type: "Extra Hour",
+    name: "Magnetic Print Extra Hour",
+    img: "/images/addons/clock.jpg",
+    price: "₱1,300/hr",
+  },
+  {
+    type: "Video Guestbook",
+    name: "Video Guestbook",
+    img: "/images/addons/video-guestbook.jpg",
+    price: "₱2,500",
+    description:
+      "Guests can record heartfelt video messages using our elegant video guestbook, creating a digital keepsake for the couple or celebrant.",
+  },
+];
+
 export const booths = [
   {
     name: "Retro Photobooth",
@@ -5,6 +41,7 @@ export const booths = [
     emoji: "📷",
     img: "https://images.unsplash.com/photo-1578376706507-35e6dd7af19c?w=600&h=480&fit=crop&auto=format",
     desc: "Step into a slice of nostalgia. Our vintage-inspired Retro Photobooth delivers classic strips and instant prints with that warm, timeless feel your guests will treasure long after the night ends.",
+
     features: [
       "Instant 2×6 & 4×6 prints",
       "Vintage & modern filter options",
@@ -12,13 +49,24 @@ export const booths = [
       "Unlimited photo sessions",
       "Dedicated attendant included",
     ],
+
+    price: "Starting at ₱8,000",
+
+    duration: "3 Hours",
+
+    idealFor: ["Wedding", "Birthday", "Debut", "Corporate Event"],
+
+    addons: defaultAddons,
   },
+
   {
     name: "Mirror Photobooth",
     tag: "Glamorous & Interactive",
     emoji: "🪞",
     img: "https://images.unsplash.com/photo-1713519341017-431ec17a211a?w=600&h=480&fit=crop&auto=format",
+
     desc: "Floor-to-ceiling glamour. Our full-length mirror engages guests with animated prompts, fun animations, and a sleek touchscreen interface.",
+
     features: [
       "Full-length touch mirror display",
       "Animated prompts",
@@ -26,13 +74,24 @@ export const booths = [
       "Instant social sharing",
       "Elegant frame",
     ],
+
+    price: "Starting at ₱10,000",
+
+    duration: "3 Hours",
+
+    idealFor: ["Wedding", "Luxury Events", "Corporate"],
+
+    addons: defaultAddons,
   },
+
   {
     name: "Enclosed Photobooth",
     tag: "Private Experience",
     emoji: "🎞️",
     img: "https://images.unsplash.com/photo-1583258919354-95996dcc7ea2?w=600&h=480&fit=crop&auto=format",
+
     desc: "A private booth where guests can truly be themselves and create unforgettable memories.",
+
     features: [
       "Private enclosure",
       "Seats up to 6",
@@ -40,13 +99,24 @@ export const booths = [
       "Backdrop options",
       "Online gallery",
     ],
+
+    price: "Starting at ₱14,500",
+
+    duration: "3 Hours",
+
+    idealFor: ["Wedding", "Birthday", "Couples"],
+
+    addons: defaultAddons,
   },
+
   {
     name: "Video Guestbook",
     tag: "Modern Keepsake",
     emoji: "🎤",
     img: "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=600&h=480&fit=crop&auto=format",
+
     desc: "Capture heartfelt video messages that you'll cherish forever.",
+
     features: [
       "HD recording",
       "Guest prompts",
@@ -54,13 +124,24 @@ export const booths = [
       "7-day delivery",
       "Unlimited messages",
     ],
+
+    price: "Starting at ₱6,000",
+
+    duration: "Whole Event",
+
+    idealFor: ["Wedding", "Birthday", "Debut"],
+
+    addons: defaultAddons,
   },
+
   {
     name: "Look Up Booth",
     tag: "Open-Air Experience",
     emoji: "📸",
     img: "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&h=480&fit=crop&auto=format",
-    desc: "Designed for larger groups, our Look Up Booth features an overhead camera that captures everyone in the frame. Perfect for weddings, parties, and corporate events where every smile deserves to be remembered.",
+
+    desc: "Designed for larger groups, our Look Up Booth features an overhead camera that captures everyone in the frame.",
+
     features: [
       "Overhead camera setup",
       "Fits large group photos",
@@ -68,19 +149,13 @@ export const booths = [
       "Instant print-outs & digital copies",
       "Custom photo templates",
     ],
-  },
-  {
-    name: "Video Guestbook",
-    tag: "Premium Add-on",
-    emoji: "🎥",
-    img: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=480&fit=crop&auto=format",
-    desc: "Replace the traditional guestbook with a modern digital keepsake. Guests can record heartfelt video messages with clear audio, creating a collection of memories that couples and celebrants can relive for years to come.",
-    features: [
-      "HD video with crystal-clear audio",
-      "Easy-to-use tablet interface",
-      "Unlimited guest recordings",
-      "Digital souvenir keepsake",
-      "Perfect for weddings & celebrations",
-    ],
+
+    price: "Starting at 15,000",
+
+    duration: "3 Hours",
+
+    idealFor: ["Wedding", "Corporate", "Large Parties"],
+
+    addons: defaultAddons,
   },
 ];
