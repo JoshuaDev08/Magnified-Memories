@@ -25,8 +25,8 @@ const defaultAddons = [
     price: "₱1,300/hr",
   },
   {
-    type: "Video Guestbook",
-    name: "Video Guestbook",
+    type: "LCD Guestbook",
+    name: "LCD Guestbook",
     img: "/images/addons/video-guestbook.jpg",
     price: "₱2,500",
     description:
