@@ -1,7 +1,50 @@
 import { motion } from "framer-motion";
 import { Camera, Sparkles } from "lucide-react";
+import BookingModal from "../components/ui/BookingModal";
+import { useRef, useEffect, useState } from "react";
 
 const CTABanner = () => {
+  const [bookingModal, setBookingModal] = useState(false);
+  const [countdown, setCountdown] = useState(10);
+
+  const messengerUrl = "https://m.me/magnifiedmemories";
+
+  const hasRedirected = useRef(false);
+
+  const openBookingModal = () => {
+    hasRedirected.current = false;
+    setCountdown(10);
+    setBookingModal(true);
+  };
+
+  const closeBookingModal = () => {
+    hasRedirected.current = true;
+    setBookingModal(false);
+  };
+
+  useEffect(() => {
+    if (!bookingModal) return;
+
+    const interval = setInterval(() => {
+      setCountdown((prev) => {
+        if (prev <= 1) {
+          clearInterval(interval);
+          return 0;
+        }
+
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [bookingModal]);
+
+  useEffect(() => {
+    if (bookingModal && countdown === 0 && !hasRedirected.current) {
+      hasRedirected.current = true;
+      closeBookingModal();
+    }
+  }, [bookingModal, countdown]);
   return (
     <section className="bg-base-200 px-6 py-24">
       <motion.div
@@ -86,10 +129,18 @@ const CTABanner = () => {
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <button
               type="button"
+              onClick={openBookingModal}
               className="btn btn-lg rounded-box border border-white/30 bg-white/15 px-8 text-sm font-bold text-white backdrop-blur-md transition-all duration-100 hover:border-white/50 hover:bg-white/25 hover:text-white"
             >
               Check Availability
             </button>
+
+            <BookingModal
+              isOpen={bookingModal}
+              countdown={countdown}
+              messengerUrl={messengerUrl}
+              onClose={closeBookingModal}
+            />
 
             <button
               className="btn btn-lg btn-secondary btn-outline text-sm rounded-box"

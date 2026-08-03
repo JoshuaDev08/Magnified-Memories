@@ -2,8 +2,51 @@ import { motion } from "framer-motion";
 import { Check, Star } from "lucide-react";
 import Button from "../components/ui/Button";
 import { plans } from "../data/pricing";
+import { useState, useRef, useEffect } from "react";
+import BookingModal from "../components/ui/BookingModal";
 
 const Pricing = () => {
+  const [bookingModal, setBookingModal] = useState(false);
+  const [countdown, setCountdown] = useState(10);
+
+  const messengerUrl = "https://m.me/magnifiedmemories";
+
+  const hasRedirected = useRef(false);
+
+  const openBookingModal = () => {
+    hasRedirected.current = false;
+    setCountdown(10);
+    setBookingModal(true);
+  };
+
+  const closeBookingModal = () => {
+    hasRedirected.current = true;
+    setBookingModal(false);
+  };
+
+  useEffect(() => {
+    if (!bookingModal) return;
+
+    const interval = setInterval(() => {
+      setCountdown((prev) => {
+        if (prev <= 1) {
+          clearInterval(interval);
+          return 0;
+        }
+
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [bookingModal]);
+
+  useEffect(() => {
+    if (bookingModal && countdown === 0 && !hasRedirected.current) {
+      hasRedirected.current = true;
+      closeBookingModal();
+    }
+  }, [bookingModal, countdown]);
   return (
     <section id="pricing" className="bg-base-300 px-6 py-24 lg:py-30">
       <div className="mx-auto max-w-7xl">
@@ -156,11 +199,18 @@ const Pricing = () => {
 
                   <div className="mt-auto pt-8">
                     {plan.featured ? (
-                      <Button className="w-full border-white/30 bg-white/15 text-white hover:border-white/25 hover:bg-white/25">
+                      <Button
+                        className="w-full border-white/30 bg-white/15 text-white hover:border-white/25 hover:bg-white/25"
+                        onClick={openBookingModal}
+                      >
                         Book {plan.name}
                       </Button>
                     ) : (
-                      <Button variant="outline" className="w-full">
+                      <Button
+                        variant="outline"
+                        className="w-full"
+                        onClick={openBookingModal}
+                      >
                         Book {plan.name}
                       </Button>
                     )}
@@ -196,6 +246,13 @@ const Pricing = () => {
           — we love creating bespoke packages.
         </motion.p>
       </div>
+
+      <BookingModal
+        isOpen={bookingModal}
+        countdown={countdown}
+        messengerUrl={messengerUrl}
+        onClose={closeBookingModal}
+      />
     </section>
   );
 };

@@ -1,11 +1,53 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Button from "../components/ui/Button";
 import { ArrowRight } from "lucide-react";
 import background from "../assets/Background.jpg";
+import BookingModal from "../components/ui/BookingModal";
 
 const Hero = () => {
   const [offsetY, setOffsetY] = useState(0);
+  const [bookingModal, setBookingModal] = useState(false);
+  const [countdown, setCountdown] = useState(10);
+
+  const messengerUrl = "https://m.me/magnifiedmemories";
+
+  const hasRedirected = useRef(false);
+
+  const openBookingModal = () => {
+    hasRedirected.current = false;
+    setCountdown(10);
+    setBookingModal(true);
+  };
+
+  const closeBookingModal = () => {
+    hasRedirected.current = true;
+    setBookingModal(false);
+  };
+
+  useEffect(() => {
+    if (!bookingModal) return;
+
+    const interval = setInterval(() => {
+      setCountdown((prev) => {
+        if (prev <= 1) {
+          clearInterval(interval);
+          return 0;
+        }
+
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [bookingModal]);
+
+  useEffect(() => {
+    if (bookingModal && countdown === 0 && !hasRedirected.current) {
+      hasRedirected.current = true;
+      closeBookingModal();
+    }
+  }, [bookingModal, countdown]);
 
   useEffect(() => {
     const handleScroll = () => setOffsetY(window.scrollY);
@@ -101,10 +143,18 @@ const Hero = () => {
 
             <button
               type="button"
+              onClick={openBookingModal}
               className="btn btn-lg rounded-box sm:w-auto border border-white/30 bg-white/15 px-8 text-sm font-bold text-white backdrop-blur-md transition-all duration-100 hover:border-white/50 hover:bg-white/25 hover:text-white"
             >
               Check Availability
             </button>
+
+            <BookingModal
+              isOpen={bookingModal}
+              countdown={countdown}
+              messengerUrl={messengerUrl}
+              onClose={closeBookingModal}
+            />
           </motion.div>
 
           {/* Stats */}
@@ -140,7 +190,7 @@ const Hero = () => {
                 className="text-2xl font-bold text-white sm:text-4xl"
                 style={{ fontFamily: "var(--font-serif)" }}
               >
-                4
+                5
               </h2>
 
               <p className="mt-2 text-[10px] uppercase tracking-wider text-white/60 sm:text-xs">

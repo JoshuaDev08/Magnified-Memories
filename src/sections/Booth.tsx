@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Check, ArrowRight, X } from "lucide-react";
 import Button from "../components/ui/Button";
 import { booths } from "../data/ourbooth";
+import BookingModal from "../components/ui/BookingModal";
 
 const OurBooths = () => {
   const [active, setActive] = useState(0);
@@ -11,6 +12,48 @@ const OurBooths = () => {
   >(null);
 
   const booth = booths[active];
+
+  const [bookingModal, setBookingModal] = useState(false);
+  const [countdown, setCountdown] = useState(10);
+
+  const messengerUrl = "https://m.me/magnifiedmemories";
+
+  const hasRedirected = useRef(false);
+
+  const openBookingModal = () => {
+    hasRedirected.current = false;
+    setCountdown(10);
+    setBookingModal(true);
+  };
+
+  const closeBookingModal = () => {
+    hasRedirected.current = true;
+    setBookingModal(false);
+  };
+
+  useEffect(() => {
+    if (!bookingModal) return;
+
+    const interval = setInterval(() => {
+      setCountdown((prev) => {
+        if (prev <= 1) {
+          clearInterval(interval);
+          return 0;
+        }
+
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [bookingModal]);
+
+  useEffect(() => {
+    if (bookingModal && countdown === 0 && !hasRedirected.current) {
+      hasRedirected.current = true;
+      closeBookingModal();
+    }
+  }, [bookingModal, countdown]);
 
   useEffect(() => {
     if (selectedBooth) {
@@ -151,16 +194,23 @@ const OurBooths = () => {
                 }}
                 className="card-actions mt-8 gap-3"
               >
-                <Button className="group">
+                <Button className="group" onClick={openBookingModal}>
                   Book This Booth
                   <ArrowRight className="ml-1 size-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </Button>
+
+                <BookingModal
+                  isOpen={bookingModal}
+                  countdown={countdown}
+                  messengerUrl={messengerUrl}
+                  onClose={closeBookingModal}
+                />
 
                 <Button
                   variant="outline"
                   onClick={() => setSelectedBooth(booth)}
                 >
-                  Learn More
+                  See More
                 </Button>
               </motion.div>
             </motion.div>
@@ -313,8 +363,8 @@ const OurBooths = () => {
                   </div>
 
                   <div className="mt-10 flex flex-wrap gap-4">
-                    <Button>
-                      Book This Booth
+                    <Button onClick={openBookingModal}>
+                      Book This Booth 
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
 
