@@ -1,6 +1,6 @@
 import retrobooth from "../assets/retro_booth.jpg";
-import mirrorbooth from "../assets/Mirror booth.jpg";
-import memoryboxbooth from "../assets/memory box.jpg";
+import mirrorbooth from "../assets/mirrorbooth.jpg";
+import memoryboxbooth from "../assets/memorybox.jpg";
 import audioguestbook from "../assets/audio_Guestbook.jpg";
 
 const defaultAddons = [
