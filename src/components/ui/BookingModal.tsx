@@ -20,7 +20,15 @@ const BookingModal = ({
   description = "We're currently developing our online booking and availability system to provide you with a better experience.",
 }: BookingModalProps) => {
   const handleMessenger = () => {
-    window.open(messengerUrl, "_blank", "noopener,noreferrer");
+    const newTab = window.open("", "_blank");
+
+    if (newTab) {
+      newTab.location.href = messengerUrl;
+    } else {
+      // Fallback if popups are blocked
+      window.location.href = messengerUrl;
+    }
+
     onClose();
   };
 

@@ -1,51 +1,59 @@
+import gallery1 from "../assets/gallery 1.jpg";
+import gallery2 from "../assets/gallery 2.jpg";
+import gallery3 from "../assets/gallery 3.jpg";
+import gallery4 from "../assets/gallery 4.jpg";
+import gallery5 from "../assets/gallery 5.jpg";
+import gallery6 from "../assets/gallery 6.jpg";
+import gallery7 from "../assets/gallery 7.jpg";
+
 export const photos = [
   {
-    url: "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=800&h=1000&fit=crop&auto=format",
-    alt: "Guests celebrating",
-    category: "Celebration",
-    width: 800,
-    height: 1000,
+    id: 1,
+    url: gallery1,
+    alt: "Student celebrating",
+    category: "Event",
+    ratio: "4 / 5",
   },
   {
-    url: "https://images.unsplash.com/photo-1714972383570-44ddc9738355?w=800&h=600&fit=crop&auto=format",
-    alt: "Dance floor moments",
-    category: "Party",
-    width: 800,
-    height: 600,
+    id: 2,
+    url: gallery2,
+    alt: "Look up Booth",
+    category: "Classic Booth",
+    ratio: "4 / 3",
   },
   {
-    url: "https://images.unsplash.com/photo-1713519341017-431ec17a211a?w=800&h=600&fit=crop&auto=format",
+    id: 3,
+    url: gallery3,
     alt: "Mirror booth glamour",
     category: "Mirror Booth",
-    width: 800,
-    height: 600,
+    ratio: "4 / 3",
   },
   {
-    url: "https://images.unsplash.com/photo-1595854875339-4d60795dcb65?w=800&h=1000&fit=crop&auto=format",
+    id: 4,
+    url: gallery4,
     alt: "Wedding photobooth",
     category: "Wedding",
-    width: 800,
-    height: 1000,
+    ratio: "4 / 5",
   },
   {
-    url: "https://images.unsplash.com/photo-1439539698758-ba2680ecadb9?w=800&h=600&fit=crop&auto=format",
-    alt: "Evening party",
-    category: "Event",
-    width: 800,
-    height: 600,
+    id: 5,
+    url: gallery7,
+    alt: "Wedding photobooth",
+    category: "Wedding",
+    ratio: "4 / 3",
   },
   {
-    url: "https://images.unsplash.com/photo-1578376706507-35e6dd7af19c?w=800&h=600&fit=crop&auto=format",
-    alt: "Retro booth",
+    id: 6,
+    url: gallery5,
+    alt: "Wedding photobooth",
+    category: "Wedding",
+    ratio: "16 / 10",
+  },
+  {
+    id: 7,
+    url: gallery6,
+    alt: "Audio Video booths",
     category: "Classic Booth",
-    width: 800,
-    height: 600,
-  },
-  {
-    url: "https://images.unsplash.com/photo-1578376706507-35e6dd7af19c?w=800&h=360&fit=crop&auto=format",
-    alt: "Retro boothness",
-    category: "Classic Booth",
-    width: 800,
-    height: 360,
+    ratio: "16 / 9.2",
   },
 ];

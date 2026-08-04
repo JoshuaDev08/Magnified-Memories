@@ -132,15 +132,18 @@ const OurBooths = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
             >
-              <motion.img
-                key={booth.img}
-                src={booth.img}
-                alt={booth.name}
-                initial={{ scale: 1.05 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.6 }}
-                className="h-full w-full object-cover"
-              />
+              <div className="group aspect-[5/4] overflow-hidden">
+                <motion.img
+                  key={booth.img}
+                  src={booth.img}
+                  alt={booth.name}
+                  initial={{ scale: 1.05 }}
+                  animate={{ scale: 1 }}
+                  whileHover={{ scale: 1.08 }}
+                  transition={{ duration: 0.6 }}
+                  className="h-full w-full object-cover"
+                />
+              </div>
             </motion.figure>
 
             {/* Content */}
@@ -364,7 +367,7 @@ const OurBooths = () => {
 
                   <div className="mt-10 flex flex-wrap gap-4">
                     <Button onClick={openBookingModal}>
-                      Book This Booth 
+                      Book This Booth
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
 

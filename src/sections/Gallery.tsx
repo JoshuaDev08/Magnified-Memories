@@ -61,7 +61,7 @@ const Gallery = () => {
         <div className="columns-1 gap-5 sm:columns-2 lg:columns-3">
           {photos.map((photo, index) => (
             <motion.button
-              key={photo.alt}
+              key={photo.id}
               type="button"
               initial={{
                 opacity: 0,
@@ -86,19 +86,22 @@ const Gallery = () => {
               className="group relative mb-5 block w-full break-inside-avoid overflow-hidden rounded-2xl bg-[#DDD0BC] text-left shadow-sm"
             >
               {/* Image */}
-              <div className="overflow-hidden">
+              <div
+                className="overflow-hidden"
+                style={{
+                  aspectRatio: photo.ratio,
+                }}
+              >
                 <motion.img
                   src={photo.url}
                   alt={photo.alt}
-                  width={photo.width}
-                  height={photo.height}
                   loading="lazy"
                   whileHover={{ scale: 1.08 }}
                   transition={{
                     duration: 0.5,
                     ease: "easeOut",
                   }}
-                  className="h-auto w-full object-cover"
+                  className="h-full w-full object-cover"
                 />
               </div>
 

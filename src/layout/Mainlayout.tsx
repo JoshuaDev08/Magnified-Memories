@@ -70,8 +70,8 @@ const MainLayout = () => {
             <HowItWorks />
             <WhyUs />
             <Gallery />
-            <Pricing />
             <Testimonials />
+            <Pricing />
             <CTABanner />
           </main>
 

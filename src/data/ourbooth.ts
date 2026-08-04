@@ -1,3 +1,8 @@
+import retrobooth from "../assets/retro_booth.jpg";
+import mirrorbooth from "../assets/Mirror booth.jpg";
+import memoryboxbooth from "../assets/memory box.jpg";
+import audioguestbook from "../assets/audio_Guestbook.jpg";
+
 const defaultAddons = [
   {
     type: "Souvenir",
@@ -39,7 +44,7 @@ export const booths = [
     name: "Retro Photobooth",
     tag: "Classic & Timeless",
     emoji: "📷",
-    img: "https://images.unsplash.com/photo-1578376706507-35e6dd7af19c?w=600&h=480&fit=crop&auto=format",
+    img: retrobooth,
     desc: "Step into a slice of nostalgia. Our vintage-inspired Retro Photobooth delivers classic strips and instant prints with that warm, timeless feel your guests will treasure long after the night ends.",
 
     features: [
@@ -63,7 +68,7 @@ export const booths = [
     name: "Mirror Photobooth",
     tag: "Glamorous & Interactive",
     emoji: "🪞",
-    img: "https://images.unsplash.com/photo-1713519341017-431ec17a211a?w=600&h=480&fit=crop&auto=format",
+    img: mirrorbooth,
 
     desc: "Floor-to-ceiling glamour. Our full-length mirror engages guests with animated prompts, fun animations, and a sleek touchscreen interface.",
 
@@ -88,7 +93,7 @@ export const booths = [
     name: "Enclosed Photobooth",
     tag: "Private Experience",
     emoji: "🎞️",
-    img: "https://images.unsplash.com/photo-1583258919354-95996dcc7ea2?w=600&h=480&fit=crop&auto=format",
+    img: memoryboxbooth,
 
     desc: "A private booth where guests can truly be themselves and create unforgettable memories.",
 
@@ -113,7 +118,7 @@ export const booths = [
     name: "Video Guestbook",
     tag: "Modern Keepsake",
     emoji: "🎤",
-    img: "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=600&h=480&fit=crop&auto=format",
+    img: audioguestbook,
 
     desc: "Capture heartfelt video messages that you'll cherish forever.",
 

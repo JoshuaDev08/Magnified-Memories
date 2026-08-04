@@ -148,13 +148,6 @@ const Hero = () => {
             >
               Check Availability
             </button>
-
-            <BookingModal
-              isOpen={bookingModal}
-              countdown={countdown}
-              messengerUrl={messengerUrl}
-              onClose={closeBookingModal}
-            />
           </motion.div>
 
           {/* Stats */}
@@ -227,6 +220,13 @@ const Hero = () => {
       >
         <div className="h-10 w-px bg-white/50" />
       </motion.div>
+
+      <BookingModal
+        isOpen={bookingModal}
+        countdown={countdown}
+        messengerUrl={messengerUrl}
+        onClose={closeBookingModal}
+      />
     </section>
   );
 };
