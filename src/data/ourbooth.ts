@@ -41,6 +41,7 @@ const defaultAddons = [
 
 export const booths = [
   {
+    id: "retro",
     name: "Retro Photobooth",
     tag: "Classic & Timeless",
     emoji: "📷",
@@ -65,6 +66,7 @@ export const booths = [
   },
 
   {
+    id: "mirror",
     name: "Mirror Photobooth",
     tag: "Glamorous & Interactive",
     emoji: "🪞",
@@ -90,6 +92,7 @@ export const booths = [
   },
 
   {
+    id: "enclosed",
     name: "Enclosed Photobooth",
     tag: "Private Experience",
     emoji: "🎞️",
@@ -115,6 +118,7 @@ export const booths = [
   },
 
   {
+    id: "video",
     name: "Video Guestbook",
     tag: "Modern Keepsake",
     emoji: "🎤",
@@ -140,6 +144,7 @@ export const booths = [
   },
 
   {
+    id: "lookup",
     name: "Look Up Booth",
     tag: "Open-Air Experience",
     emoji: "📸",

@@ -23,7 +23,7 @@ const Footer = () => {
     <footer className="bg-[#1C1410] text-white">
       <div className="mx-auto max-w-7xl px-6 py-10">
         {/* Top */}
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr]">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr_1.3fr]">
           {/* Brand */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
@@ -103,13 +103,34 @@ const Footer = () => {
               <ul className="space-y-2">
                 {section.links.map((link) => (
                   <li key={link.label}>
-                    {link.href ? (
+                    {/* Booth links */}
+                    {link.booth ? (
                       <button
                         type="button"
                         onClick={() => {
-                          const id = link.href.replace("#", "");
+                          document.dispatchEvent(
+                            new CustomEvent("changeBooth", {
+                              detail: link.booth,
+                            })
+                          );
+
                           document
-                            .getElementById(id)
+                            .getElementById("our-booths")
+                            ?.scrollIntoView({
+                              behavior: "smooth",
+                            });
+                        }}
+                        className="cursor-pointer text-sm text-white/60 transition-all duration-300 hover:pl-1 hover:text-[#C4956A]"
+                      >
+                        {link.label}
+                      </button>
+                    ) : /* Normal navigation links */
+                    link.href ? (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          document
+                            .querySelector(link.href!)
                             ?.scrollIntoView({ behavior: "smooth" });
                         }}
                         className="cursor-pointer text-sm text-white/60 transition-all duration-300 hover:pl-1 hover:text-[#C4956A]"
@@ -117,9 +138,16 @@ const Footer = () => {
                         {link.label}
                       </button>
                     ) : (
-                      <span className="text-sm text-white/60">
-                        {link.label}
-                      </span>
+                      /* Contact information */
+                      <div className="flex items-center gap-2 text-sm text-white/60">
+                        {link.icon && (
+                          <link.icon
+                            size={16}
+                            className="shrink-0 text-[#C4956A]"
+                          />
+                        )}
+                        <span>{link.label}</span>
+                      </div>
                     )}
                   </li>
                 ))}

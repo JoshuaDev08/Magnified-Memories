@@ -1,14 +1,16 @@
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Button from "../components/ui/Button";
 import { ArrowRight } from "lucide-react";
-import background from "../assets/Background.jpg";
+import HeroBackground from "../components/HeroBackground";
 import BookingModal from "../components/ui/BookingModal";
+import { heroSlides } from "../data/heroSlideimage";
 
 const Hero = () => {
-  const [offsetY, setOffsetY] = useState(0);
   const [bookingModal, setBookingModal] = useState(false);
   const [countdown, setCountdown] = useState(10);
+  const [current, setCurrent] = useState(0);
+  const { scrollY } = useScroll();
 
   const messengerUrl = "https://m.me/magnifiedmemories";
 
@@ -24,6 +26,18 @@ const Hero = () => {
     hasRedirected.current = true;
     setBookingModal(false);
   };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setCurrent((prev) => (prev + 1) % heroSlides.length);
+    }, 10000);
+
+    return () => clearTimeout(timer);
+  }, [current]);
+
+  const contentY = useTransform(scrollY, [0, 700], [0, 90]);
+
+  const contentOpacity = useTransform(scrollY, [0, 500], [1, 0.6]);
 
   useEffect(() => {
     if (!bookingModal) return;
@@ -49,28 +63,13 @@ const Hero = () => {
     }
   }, [bookingModal, countdown]);
 
-  useEffect(() => {
-    const handleScroll = () => setOffsetY(window.scrollY);
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <section id="home" className="hero min-h-screen relative overflow-hidden">
       {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center scale-110"
-        style={{
-          backgroundImage: `url(${background})`,
-          transform: `translateY(${offsetY * 0.55}px) scale(1.1)`,
-          willChange: "transform",
-        }}
-      />
+      <HeroBackground current={current} />
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/60" />
+      <div className="absolute inset-0 bg-black/40" />
 
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#7A3B1E]/40 via-black/30 to-black/70" />
@@ -80,13 +79,11 @@ const Hero = () => {
       <div className="absolute -bottom-32 -left-32 h-[450px] w-[450px] rounded-full bg-[#7A3B1E]/30 blur-3xl" />
 
       {/* Content */}
-      <div className="hero-content relative z-10 px-6 text-center sm:px-8 lg:px-0">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl"
-        >
+      <motion.div
+        className="hero-content relative z-10 px-6 text-center sm:px-8 lg:px-0"
+
+      >
+        <motion.div className="max-w-4xl">
           {/* Eyebrow */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -157,11 +154,7 @@ const Hero = () => {
             transition={{ delay: 1, duration: 0.8 }}
             className="mt-20 flex justify-between border-t border-white/20 pt-6"
           >
-            <motion.div
-              whileHover={{ y: -5 }}
-              transition={{ duration: 0.2 }}
-              className="flex-1 py-3 text-center"
-            >
+            <motion.div className="flex-1 py-3 text-center">
               <h2
                 className="text-2xl font-bold text-white sm:text-4xl"
                 style={{ fontFamily: "var(--font-serif)" }}
@@ -174,11 +167,7 @@ const Hero = () => {
               </p>
             </motion.div>
 
-            <motion.div
-              whileHover={{ y: -5 }}
-              transition={{ duration: 0.2 }}
-              className="flex-1 border-x border-white/20 py-3 text-center"
-            >
+            <motion.div className="flex-1 border-x border-white/20 py-3 text-center">
               <h2
                 className="text-2xl font-bold text-white sm:text-4xl"
                 style={{ fontFamily: "var(--font-serif)" }}
@@ -191,11 +180,7 @@ const Hero = () => {
               </p>
             </motion.div>
 
-            <motion.div
-              whileHover={{ y: -5 }}
-              transition={{ duration: 0.2 }}
-              className="flex-1 py-3 text-center"
-            >
+            <motion.div className="flex-1 py-3 text-center">
               <h2
                 className="text-2xl font-bold text-white sm:text-4xl"
                 style={{ fontFamily: "var(--font-serif)" }}
@@ -209,6 +194,35 @@ const Hero = () => {
             </motion.div>
           </motion.div>
         </motion.div>
+      </motion.div>
+      <div className="absolute bottom-9 right-8 z-20 flex flex-col items-end gap-3">
+        <span className="text-[11px] uppercase tracking-[0.12em] text-white/60">
+          {heroSlides[current].label}
+        </span>
+
+        <div className="flex">
+          {heroSlides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrent(index)}
+              className="relative h-2 w-6"
+            >
+              {current === index ? (
+                <motion.div
+                  layoutId="active-slide"
+                  className="absolute inset-0 rounded-full bg-[#C4956A]"
+                  transition={{
+                    type: "spring",
+                    stiffness: 350,
+                    damping: 28,
+                  }}
+                />
+              ) : (
+                <div className="h-2 w-2 rounded-full bg-white/30 mx-auto" />
+              )}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Scroll Indicator */}

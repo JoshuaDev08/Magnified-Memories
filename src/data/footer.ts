@@ -1,16 +1,25 @@
 import InstagramIcon from "../assets/icons/instagram.svg";
 import FacebookIcon from "../assets/icons/facebook.svg";
 import TiktokIcon from "../assets/icons/tiktok.svg";
+import { Phone, Mail, MapPin } from "lucide-react";
 
 export const footerLinks = [
   {
     title: "Our Booths",
     links: [
-      { label: "Retro Photobooth", href: "#our-booths" },
-      { label: "Mirror Photobooth", href: "#our-booths" },
-      { label: "Enclosed Photobooth", href: "#our-booths" },
-      { label: "Look Up Photobooth", href: "#our-booths" },
-      { label: "Video Guestbook", href: "#our-booths" },
+      { label: "Retro Photobooth", booth: "retro" },
+      { label: "Mirror Photobooth", booth: "mirror" },
+      { label: "Enclosed Photobooth", booth: "enclosed" },
+      { label: "Look Up Photobooth", booth: "lookup" },
+      { label: "Video Guestbook", booth: "video" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "Why Choose Us", href: "#why-us" },
+      { label: "Gallery", href: "#gallery" },
+      { label: "Pricing", href: "#pricing" },
     ],
   },
   {
@@ -23,11 +32,23 @@ export const footerLinks = [
     ],
   },
   {
-    title: "Company",
+    title: "Contact Us",
     links: [
-      { label: "Why Choose Us", href: "#why-us" },
-      { label: "Gallery", href: "#gallery" },
-      { label: "Pricing", href: "#pricing" },
+      {
+        label: "+63 916 690 2717",
+        href: null,
+        icon: Phone,
+      },
+      {
+        label: "magnifiedmem@gmail.com",
+        href: null,
+        icon: Mail,
+      },
+      {
+        label: "Lipa City, Batangas",
+        href: null,
+        icon: MapPin,
+      },
     ],
   },
 ];

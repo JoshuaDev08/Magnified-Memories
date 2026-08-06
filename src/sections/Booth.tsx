@@ -67,6 +67,24 @@ const OurBooths = () => {
     };
   }, [selectedBooth]);
 
+  useEffect(() => {
+    const handleBoothChange = (event: Event) => {
+      const boothId = (event as CustomEvent<string>).detail;
+
+      const index = booths.findIndex((booth) => booth.id === boothId);
+
+      if (index !== -1) {
+        setActive(index);
+      }
+    };
+
+    document.addEventListener("changeBooth", handleBoothChange);
+
+    return () => {
+      document.removeEventListener("changeBooth", handleBoothChange);
+    };
+  }, []);
+
   return (
     <section id="our-booths" className="py-24 bg-base-100">
       <div className="container mx-auto px-6">
