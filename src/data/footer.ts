@@ -1,9 +1,29 @@
+import type { LucideIcon } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
+
 import InstagramIcon from "../assets/icons/instagram.svg";
 import FacebookIcon from "../assets/icons/facebook.svg";
 import TiktokIcon from "../assets/icons/tiktok.svg";
-import { Phone, Mail, MapPin } from "lucide-react";
 
-export const footerLinks = [
+export interface FooterLink {
+  label: string;
+  href?: string | null;
+  booth?: string;
+  icon?: LucideIcon;
+}
+
+export interface FooterSection {
+  title: string;
+  links: FooterLink[];
+}
+
+export interface SocialLink {
+  icon: string;
+  href: string;
+  label: string;
+}
+
+export const footerLinks: FooterSection[] = [
   {
     title: "Our Booths",
     links: [
@@ -53,7 +73,7 @@ export const footerLinks = [
   },
 ];
 
-export const socials = [
+export const socials: SocialLink[] = [
   {
     icon: InstagramIcon,
     href: "https://www.instagram.com/magnifiedmem/",
