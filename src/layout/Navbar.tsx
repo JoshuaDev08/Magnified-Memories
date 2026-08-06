@@ -50,12 +50,23 @@ const Navbar = () => {
         }`}
       >
         <div
-          className={`navbar transition-all duration-300 ease-in-out ${
+          className={`navbar relative overflow-hidden transition-all duration-500 ease-out ${
             isScrolled
-              ? "bg-[#FAF7F2]/70 backdrop-blur-xs font-black border border-white/40 shadow-lg shadow-[#7A3B1E]/10 rounded-2xl"
+              ? "rounded-2xl bg-white/12 backdrop-blur-lg border border-white/25 shadow-[0_8px_32px_rgba(0,0,0,0.15)]"
               : "bg-transparent border border-transparent shadow-none"
           }`}
         >
+          {/* Glass Highlight */}
+          {isScrolled && (
+            <>
+              <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-b from-white/25 via-white/5 to-transparent" />
+
+              <div className="pointer-events-none absolute -top-10 left-1/2 h-20 w-[70%] -translate-x-1/2 rounded-full bg-white/20 blur-3xl" />
+
+              <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/20" />
+            </>
+          )}
+
           {/* Logo */}
           <div className="navbar-start">
             <a
@@ -74,8 +85,10 @@ const Navbar = () => {
                 style={{ fontFamily: "var(--font-serif)" }}
               >
                 <h1
-                  className={`text-sm sm:text-base lg:text-xl font-bold whitespace-nowrap transition-colors duration-300 ${
-                    isScrolled ? "text-black" : "text-white"
+                  className={`text-sm sm:text-base lg:text-xl font-bold whitespace-nowrap transition-all duration-500 ${
+                    isScrolled
+                      ? "text-[#2B2118] drop-shadow-none"
+                      : "text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]"
                   }`}
                 >
                   Magnified
@@ -95,10 +108,10 @@ const Navbar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.05 }}
                 whileHover={{ y: -2 }}
-                className={`relative transition-colors duration-300 group ${
+                className={`relative group transition-all duration-500 ${
                   isScrolled
                     ? "text-[#2B2118] hover:text-[#C4956A]"
-                    : "text-white hover:text-[#C4956A]"
+                    : "text-white hover:text-[#C4956A] drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]"
                 }`}
               >
                 {link.name}
