@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Button from "../components/ui/Button";
 import { ArrowRight } from "lucide-react";
 import HeroBackground from "../components/HeroBackground";
@@ -10,7 +10,6 @@ const Hero = () => {
   const [bookingModal, setBookingModal] = useState(false);
   const [countdown, setCountdown] = useState(10);
   const [current, setCurrent] = useState(0);
-  const { scrollY } = useScroll();
 
   const messengerUrl = "https://m.me/magnifiedmemories";
 
@@ -34,10 +33,6 @@ const Hero = () => {
 
     return () => clearTimeout(timer);
   }, [current]);
-
-  const contentY = useTransform(scrollY, [0, 700], [0, 90]);
-
-  const contentOpacity = useTransform(scrollY, [0, 500], [1, 0.6]);
 
   useEffect(() => {
     if (!bookingModal) return;
