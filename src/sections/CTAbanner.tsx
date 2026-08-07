@@ -46,7 +46,7 @@ const CTABanner = () => {
     }
   }, [bookingModal, countdown]);
   return (
-    <section className="bg-base-200 px-6 py-24">
+    <section id="ctabanner" className="bg-base-200 px-6 py-24">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -135,13 +135,6 @@ const CTABanner = () => {
               Check Availability
             </button>
 
-            <BookingModal
-              isOpen={bookingModal}
-              countdown={countdown}
-              messengerUrl={messengerUrl}
-              onClose={closeBookingModal}
-            />
-
             <button
               className="btn btn-lg btn-secondary btn-outline text-sm rounded-box"
               onClick={() =>
@@ -155,6 +148,12 @@ const CTABanner = () => {
           </div>
         </div>
       </motion.div>
+      <BookingModal
+        isOpen={bookingModal}
+        countdown={countdown}
+        messengerUrl={messengerUrl}
+        onClose={closeBookingModal}
+      />
     </section>
   );
 };

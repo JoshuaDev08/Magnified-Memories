@@ -8,6 +8,50 @@ import { navLinks } from "../data/Navbar";
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isWhiteText, setIsWhiteText] = useState(true);
+
+  useEffect(() => {
+    const checkNavbarBackground = () => {
+      const navbar = document.querySelector(".navbar") as HTMLElement;
+
+      if (!navbar) return;
+
+      const rect = navbar.getBoundingClientRect();
+      const y = window.scrollY + rect.top + rect.height / 2;
+
+      const sections = document.querySelectorAll("section[id]");
+
+      let currentSection: HTMLElement | null = null;
+
+      sections.forEach((section) => {
+        const el = section as HTMLElement;
+
+        if (y >= el.offsetTop && y < el.offsetTop + el.offsetHeight) {
+          currentSection = el;
+        }
+      });
+
+      const shouldBeWhite =
+        !currentSection ||
+        currentSection?.id === "home" ||
+        currentSection?.id === "stories";
+
+      setIsWhiteText(shouldBeWhite);
+    };
+
+    checkNavbarBackground();
+
+    window.addEventListener("scroll", checkNavbarBackground, {
+      passive: true,
+    });
+
+    window.addEventListener("resize", checkNavbarBackground);
+
+    return () => {
+      window.removeEventListener("scroll", checkNavbarBackground);
+      window.removeEventListener("resize", checkNavbarBackground);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -52,7 +96,7 @@ const Navbar = () => {
         <div
           className={`navbar relative overflow-hidden transition-all duration-500 ease-out ${
             isScrolled
-              ? "rounded-2xl bg-white/12 backdrop-blur-lg border border-white/25 shadow-[0_8px_32px_rgba(0,0,0,0.15)]"
+              ? "rounded-2xl bg-white/12 backdrop-blur-sm border border-white/25 shadow-[0_8px_32px_rgba(0,0,0,0.15)]"
               : "bg-transparent border border-transparent shadow-none"
           }`}
         >
@@ -86,9 +130,9 @@ const Navbar = () => {
               >
                 <h1
                   className={`text-sm sm:text-base lg:text-xl font-bold whitespace-nowrap transition-all duration-500 ${
-                    isScrolled
-                      ? "text-[#2B2118] drop-shadow-none"
-                      : "text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]"
+                    isWhiteText
+                      ? "text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]"
+                      : "text-[#2B2118] drop-shadow-none"
                   }`}
                 >
                   Magnified
@@ -109,10 +153,10 @@ const Navbar = () => {
                 transition={{ delay: index * 0.05 }}
                 whileHover={{ y: -2 }}
                 className={`relative group transition-all duration-500 ${
-                  isScrolled
-                    ? "text-[#2B2118] hover:text-[#C4956A]"
-                    : "text-white hover:text-[#C4956A] drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]"
-                }`}
+                  isWhiteText
+                    ? "text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.45)]"
+                    : "text-[#2B2118]"
+                } hover:text-[#C4956A]`}
               >
                 {link.name}
 

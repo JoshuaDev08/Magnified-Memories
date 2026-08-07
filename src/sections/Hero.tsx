@@ -29,7 +29,7 @@ const Hero = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setCurrent((prev) => (prev + 1) % heroSlides.length);
-    }, 10000);
+    }, 6000);
 
     return () => clearTimeout(timer);
   }, [current]);
