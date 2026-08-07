@@ -19,22 +19,17 @@ const Navbar = () => {
       const rect = navbar.getBoundingClientRect();
       const y = window.scrollY + rect.top + rect.height / 2;
 
-      const sections = document.querySelectorAll("section[id]");
-
-      let currentSection: HTMLElement | null = null;
-
-      sections.forEach((section) => {
-        const el = section as HTMLElement;
-
-        if (y >= el.offsetTop && y < el.offsetTop + el.offsetHeight) {
-          currentSection = el;
-        }
-      });
+      const currentSection = Array.from(
+        document.querySelectorAll<HTMLElement>("section[id]")
+      ).find(
+        (section) =>
+          y >= section.offsetTop && y < section.offsetTop + section.offsetHeight
+      );
 
       const shouldBeWhite =
         !currentSection ||
-        currentSection?.id === "home" ||
-        currentSection?.id === "stories";
+        currentSection.id === "home" ||
+        currentSection.id === "stories";
 
       setIsWhiteText(shouldBeWhite);
     };
